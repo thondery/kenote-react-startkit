@@ -79,6 +79,7 @@ module.exports = {
       }
     }),
     isDev && new webpack.HotModuleReplacementPlugin(),
+    isProd && new webpack.optimize.AggressiveMergingPlugin(),
     new LodashModuleReplacementPlugin({
       'shorthands'  : true,
       'collections' : true,
@@ -94,6 +95,7 @@ module.exports = {
             presets: ['es2015', 'react', 'stage-0'] ,
             plugins: [
               'react-hot-loader/babel',
+              'syntax-dynamic-import',
               'transform-decorators-legacy',
               'lodash', 
               ['import', [
@@ -102,7 +104,14 @@ module.exports = {
                   'libraryDirectory': 'lib',
                   'style': 'css' 
                 }
-              ]]
+              ]],
+              [
+                'module-resolver', {
+                  "alias": {
+                    "src": "./src"
+                  }
+                }
+              ]
             ],
             compact: false,
             cacheDirectory: true
