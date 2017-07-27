@@ -10,14 +10,10 @@ export default class Root extends Component {
     }
   }
 
-  componentDidMount () {
-    
-  }
-
   render () {
     return (
       <div>
-        Hello, React!!!
+        <h1>Hello, Welcome to the world of React!</h1>
       </div>
     )
   }

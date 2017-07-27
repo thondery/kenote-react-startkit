@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const path = require('path')
 const _ = require('lodash')
+const pkg = require('./package.json')
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
@@ -19,7 +20,7 @@ const scssLoader = [
     }
   },
   {
-    loader: 'postcss-loader'
+    loader: 'postcss-loader',
   },
   {
     loader: 'sass-loader',
@@ -28,28 +29,34 @@ const scssLoader = [
     }
   }
 ]
-isDev && scssLoader.splice(0, 0, 'style-loader')
+if (isDev) {
+  _.find(scssLoader, { loader: 'postcss-loader' }).options = {
+    autoprefixer : {
+      add      : true,
+      remove   : true,
+      browsers : ['last 2 versions']
+    }
+  }
+}
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   cache: true,
   entry: {
     index: './index.js',
-    vender: [
-      'react-hot-loader/patch',
-      'babel-polyfill',
-      'react',
-      'react-dom'
-    ]
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].bundle.js',
+    filename: '[name].bundle.js',
     publicPath: ''
   },
   plugins: _.compact([
-    isProd && new ExtractTextPlugin({
-      filename: '[name].[hash].css',
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+			manifest: require('./dll/manifest.json')
+    }),
+    new ExtractTextPlugin({
+      filename: '[name].css',
       allChunks: true
     }),
     new webpack.DefinePlugin({
@@ -58,22 +65,25 @@ module.exports = {
       }
     }),
     isProd && new webpack.optimize.UglifyJsPlugin({
-      compress : {
-        unused    : true,
-        dead_code : true,
-        warnings  : false
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      names : ['vendor']
+      output: {
+        comments: false,
+      },
+      compress: {
+        warnings: false
+      },
     }),
     new HtmlWebpackPlugin({
-      title    : 'React APP',
+      title    : pkg.name,
+      vendor   : {
+        entry : `<script type\=\"text/javascript\" src\=\"${require('./dll/manifest.json').name}.js\"><\/script>`,
+        css   : `<link href\=\"${require('./dll/manifest.json').name}.css\" rel\=\"stylesheet\">`
+      },
       template : path.resolve(__dirname, 'src/index.html'),
       hash     : false,
       favicon  : path.resolve(__dirname, 'public/favicon.ico'),
       filename : 'index.html',
-      inject   : 'body',
+      inject   : false,
+      hash     : true,
       minify   : {
         collapseWhitespace : false
       }
@@ -89,34 +99,8 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: [{
-          loader: 'babel-loader',
-          options: { 
-            presets: ['es2015', 'react', 'stage-0'] ,
-            plugins: [
-              'react-hot-loader/babel',
-              'syntax-dynamic-import',
-              'transform-decorators-legacy',
-              'lodash', 
-              ['import', [
-                { 
-                  'libraryName': 'antd', 
-                  'libraryDirectory': 'lib',
-                  'style': 'css' 
-                }
-              ]],
-              [
-                'module-resolver', {
-                  "alias": {
-                    "src": "./src"
-                  }
-                }
-              ]
-            ],
-            compact: false,
-            cacheDirectory: true
-          }
-        }],
+        exclude: /node_modules/,
+        loader: 'babel-loader?cacheDirectory=true'
       },
       {
         test : /\.json$/,
@@ -126,20 +110,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: isProd ? ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader?sourceMap&-minimize'
-        }) : [
-          'style-loader',
-          'css-loader?sourceMap&-minimize'
-        ]
+        })
       },
       {
         test: /\.scss$/,
-        use: isProd ? ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: scssLoader,
-        }) : scssLoader,
+        })
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -150,28 +131,12 @@ module.exports = {
         }
       },
       {
-        test: /\.woff(\?.*)?$/,
-        loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff'
-      },
-      {
-        test: /\.woff2(\?.*)?$/,
-        loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2'
-      },
-      {
-        test: /\.otf(\?.*)?$/,
-        loader: 'file-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype'
-      },
-      {
-        test: /\.ttf(\?.*)?$/,
-        loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream'
-      },
-      {
-        test: /\.eot(\?.*)?$/,
-        loader: 'file-loader?prefix=fonts/&name=[path][name].[ext]'
-      },
-      {
-        test: /\.svg(\?.*)?$/,
-        loader: 'url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml'
+        test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader',
+        options: {
+          limit: 8192,
+          name: '[path][name].[ext]'
+        }
       }
     ],
   },
