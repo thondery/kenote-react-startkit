@@ -5,12 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="favicon.ico">
-  <%= htmlWebpackPlugin.options.vendor.css %>
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>  <link href="<%=htmlWebpackPlugin.files.chunks[chunk].css %>" rel="stylesheet">
-<% } %></head>
+</head>
 <body>
   <div id="root"></div>
-  <%= htmlWebpackPlugin.options.vendor.entry %>
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %></body>
+</body>
 </html>

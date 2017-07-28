@@ -5,10 +5,21 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const path = require('path')
+const fs = require('fs')
 const _ = require('lodash')
 const pkg = require('./package.json')
+
+const assets = []
+const isManifest = fs.existsSync('./dll/manifest.json')
+if (isManifest) {
+  const manifest = require('./dll/manifest.json')
+  for (let e of ['js', 'css']) {
+    fs.existsSync(`./dist/${manifest.name}.${e}`) && assets.push(`${manifest.name}.${e}`)
+  }
+}
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
@@ -38,6 +49,7 @@ if (isDev) {
     }
   }
 }
+
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -74,19 +86,20 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title    : pkg.name,
-      vendor   : {
-        entry : `<script type\=\"text/javascript\" src\=\"${require('./dll/manifest.json').name}.js\"><\/script>`,
-        css   : `<link href\=\"${require('./dll/manifest.json').name}.css\" rel\=\"stylesheet\">`
-      },
       template : path.resolve(__dirname, 'src/index.html'),
       hash     : false,
       favicon  : path.resolve(__dirname, 'public/favicon.ico'),
       filename : 'index.html',
-      inject   : false,
+      inject   : 'body',
       hash     : true,
       minify   : {
         collapseWhitespace : false
       }
+    }),
+    new HtmlWebpackIncludeAssetsPlugin({
+      assets: assets,
+      append: false,
+      hash: true
     }),
     isDev && new webpack.HotModuleReplacementPlugin(),
     isProd && new webpack.optimize.AggressiveMergingPlugin(),
