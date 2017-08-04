@@ -13,8 +13,16 @@ module.exports = {
       'react',
       'react-dom',
       'prop-types',
+      'redux',
+      'react-redux',
+      'redux-thunk',
+      'redux-logger',
+      'react-router',
+      'react-router-dom',
+      'react-router-redux',
       'classnames',
-      'lodash'
+      'lodash',
+      'font-awesome/css/font-awesome.min.css'
     ]
   },
   output: {

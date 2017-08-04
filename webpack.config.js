@@ -1,7 +1,6 @@
 // ------------------------------------
 // Webpack Config For Version 3.x
 // ------------------------------------
-
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -12,14 +11,18 @@ const fs = require('fs')
 const _ = require('lodash')
 const pkg = require('./package.json')
 
+const __DESKTOP__ = pkg.React.desktop
+const contextPath = __DESKTOP__ ? '' : '/'
 const assets = []
 const isManifest = fs.existsSync('./dll/manifest.json')
 if (isManifest) {
   const manifest = require('./dll/manifest.json')
-  for (let e of ['js', 'css']) {
-    fs.existsSync(`./dist/${manifest.name}.${e}`) && assets.push(`${manifest.name}.${e}`)
+  for (let ext of ['js', 'css']) {
+    fs.existsSync(`./dist/${manifest.name}.${ext}`) && assets.push(`${contextPath}${manifest.name}.${ext}`)
   }
 }
+assets.push(`${contextPath}index.bundle.js`)
+assets.push(`${contextPath}index.css`)
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
@@ -74,7 +77,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
+      },
+      '__DESKTOP__': __DESKTOP__
     }),
     isProd && new webpack.optimize.UglifyJsPlugin({
       output: {
@@ -87,11 +91,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title    : pkg.name,
       template : path.resolve(__dirname, 'src/index.html'),
-      hash     : false,
       favicon  : path.resolve(__dirname, 'public/favicon.ico'),
       filename : 'index.html',
       inject   : 'body',
       hash     : true,
+      excludeChunks   : ['index'],
       minify   : {
         collapseWhitespace : false
       }
@@ -155,8 +159,10 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    compress: true,
+    compress: false,
     hot: true,
-    port: 9000
+    port: 9000,
+    historyApiFallback: true,
+    publicPath: ''
   }
 }

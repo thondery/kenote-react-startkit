@@ -29,7 +29,8 @@ module.exports = {
       ENV: '"test"',
       'process.env': {
         NODE_ENV: JSON.stringify('test'),
-      }
+      },
+      '__DESKTOP__': false
     })
   ],
   module: {

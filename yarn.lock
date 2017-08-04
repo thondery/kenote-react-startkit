@@ -1585,7 +1585,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.6.0:
+create-react-class@^15.5.3, create-react-class@^15.6.0:
   version "15.6.0"
   resolved "http://registry.npm.taobao.org/create-react-class/download/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
   dependencies:
@@ -1796,6 +1796,10 @@ debug@2.6.8, debug@^2.1.1, debug@^2.2.0, debug@^2.4.5, debug@^2.6.3, debug@^2.6.
 decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/decamelize/download/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
+
+deep-diff@^0.3.5:
+  version "0.3.8"
+  resolved "http://registry.npm.taobao.org/deep-diff/download/deep-diff-0.3.8.tgz#c01de63efb0eec9798801d40c7e0dae25b582c84"
 
 deep-equal@^1.0.1:
   version "1.0.1"
@@ -2564,6 +2568,10 @@ follow-redirects@^1.2.3:
   dependencies:
     debug "^2.4.5"
 
+font-awesome@^4.7.0:
+  version "4.7.0"
+  resolved "http://registry.npm.taobao.org/font-awesome/download/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
+
 for-in@^0.1.3:
   version "0.1.8"
   resolved "http://registry.npm.taobao.org/for-in/download/for-in-0.1.8.tgz#d8773908e31256109952b1fdb9b3fa867d2775e1"
@@ -2879,6 +2887,16 @@ he@1.1.x:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/he/download/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
+history@^4.5.1, history@^4.6.0:
+  version "4.6.3"
+  resolved "http://registry.npm.taobao.org/history/download/history-4.6.3.tgz#6d723a8712c581d6bef37e8c26f4aedc6eb86967"
+  dependencies:
+    invariant "^2.2.1"
+    loose-envify "^1.2.0"
+    resolve-pathname "^2.0.0"
+    value-equal "^0.2.0"
+    warning "^3.0.0"
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/hmac-drbg/download/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -2890,6 +2908,10 @@ hmac-drbg@^1.0.0:
 hoek@2.x.x:
   version "2.16.3"
   resolved "http://registry.npm.taobao.org/hoek/download/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
+
+hoist-non-react-statics@^1.0.3, hoist-non-react-statics@^1.2.0:
+  version "1.2.0"
+  resolved "http://registry.npm.taobao.org/hoist-non-react-statics/download/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -2944,14 +2966,6 @@ html-webpack-include-assets-plugin@^0.0.7:
   dependencies:
     minimatch "^3.0.3"
 
-html-webpack-inline-source-plugin@^0.0.9:
-  version "0.0.9"
-  resolved "http://registry.npm.taobao.org/html-webpack-inline-source-plugin/download/html-webpack-inline-source-plugin-0.0.9.tgz#e52dd3cf1164ac76ceaf39ba206f92e3597d054d"
-  dependencies:
-    escape-string-regexp "^1.0.5"
-    slash "^1.0.0"
-    source-map-url "^0.4.0"
-
 html-webpack-plugin@^2.29.0:
   version "2.29.0"
   resolved "http://registry.npm.taobao.org/html-webpack-plugin/download/html-webpack-plugin-2.29.0.tgz#e987f421853d3b6938c8c4c8171842e5fd17af23"
@@ -3000,6 +3014,14 @@ http-proxy@^1.16.2:
   dependencies:
     eventemitter3 "1.x.x"
     requires-port "1.x.x"
+
+http-services@^1.2.5:
+  version "1.2.5"
+  resolved "http://registry.npm.taobao.org/http-services/download/http-services-1.2.5.tgz#a92afdd7710a5aefaf88a5f846cec74059cb0fab"
+  dependencies:
+    isomorphic-fetch "^2.2.1"
+    lodash "^4.17.4"
+    query-string "^4.3.2"
 
 http-signature@~1.1.0:
   version "1.1.1"
@@ -3109,7 +3131,7 @@ interpret@^1.0.0, interpret@^1.0.1:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/interpret/download/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-invariant@^2.2.0:
+invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.2"
   resolved "http://registry.npm.taobao.org/invariant/download/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -3336,7 +3358,7 @@ isobject@^3.0.1:
   version "3.0.1"
   resolved "http://registry.npm.taobao.org/isobject/download/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
-isomorphic-fetch@^2.1.1:
+isomorphic-fetch@^2.1.1, isomorphic-fetch@^2.2.1:
   version "2.2.1"
   resolved "http://registry.npm.taobao.org/isomorphic-fetch/download/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
   dependencies:
@@ -3607,6 +3629,10 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+lodash-es@^4.2.0, lodash-es@^4.2.1:
+  version "4.17.4"
+  resolved "http://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
+
 lodash-webpack-plugin@^0.11.4:
   version "0.11.4"
   resolved "http://registry.npm.taobao.org/lodash-webpack-plugin/download/lodash-webpack-plugin-0.11.4.tgz#6c3ecba3d4b8d24b53940b63542715c5ed3c4ac5"
@@ -3696,7 +3722,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "http://registry.npm.taobao.org/lodash.uniq/download/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.4:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.4:
   version "4.17.4"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -3708,7 +3734,7 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/longest/download/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1:
   version "1.3.1"
   resolved "http://registry.npm.taobao.org/loose-envify/download/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
@@ -4410,6 +4436,12 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "http://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
 
+path-to-regexp@^1.5.3:
+  version "1.7.0"
+  resolved "http://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-1.7.0.tgz#59fde0f435badacba103a84e9d3bc64e96b9937d"
+  dependencies:
+    isarray "0.0.1"
+
 path-type@^1.0.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/path-type/download/path-type-1.1.0.tgz#59c44f7ee491da704da415da5a4070ba4f8fe441"
@@ -4869,7 +4901,7 @@ qs@~6.3.0:
   version "6.3.2"
   resolved "http://registry.npm.taobao.org/qs/download/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
 
-query-string@^4.1.0:
+query-string@^4.1.0, query-string@^4.3.2:
   version "4.3.4"
   resolved "http://registry.npm.taobao.org/query-string/download/query-string-4.3.4.tgz#bbb693b9ca915c232515b228b1a02b609043dbeb"
   dependencies:
@@ -4947,6 +4979,47 @@ react-proxy@^3.0.0-alpha.0:
   resolved "http://registry.npm.taobao.org/react-proxy/download/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"
   dependencies:
     lodash "^4.6.1"
+
+react-redux@^5.0.5:
+  version "5.0.5"
+  resolved "http://registry.npm.taobao.org/react-redux/download/react-redux-5.0.5.tgz#f8e8c7b239422576e52d6b7db06439469be9846a"
+  dependencies:
+    create-react-class "^15.5.3"
+    hoist-non-react-statics "^1.0.3"
+    invariant "^2.0.0"
+    lodash "^4.2.0"
+    lodash-es "^4.2.0"
+    loose-envify "^1.1.0"
+    prop-types "^15.5.10"
+
+react-router-dom@^4.1.2:
+  version "4.1.2"
+  resolved "http://registry.npm.taobao.org/react-router-dom/download/react-router-dom-4.1.2.tgz#7f8a7ca868d32acadd19ca09543b40d26df8ec37"
+  dependencies:
+    history "^4.5.1"
+    loose-envify "^1.3.1"
+    prop-types "^15.5.4"
+    react-router "^4.1.1"
+
+react-router-redux@next:
+  version "5.0.0-alpha.6"
+  resolved "http://registry.npm.taobao.org/react-router-redux/download/react-router-redux-5.0.0-alpha.6.tgz#7418663c2ecd3c51be856fcf28f3d1deecc1a576"
+  dependencies:
+    history "^4.5.1"
+    prop-types "^15.5.4"
+    react-router "^4.1.1"
+
+react-router@^4.1.1, react-router@^4.1.2:
+  version "4.1.2"
+  resolved "http://registry.npm.taobao.org/react-router/download/react-router-4.1.2.tgz#7ae027341abc42eb08ad9f7a8cac08d0563672ce"
+  dependencies:
+    history "^4.6.0"
+    hoist-non-react-statics "^1.2.0"
+    invariant "^2.2.2"
+    loose-envify "^1.3.1"
+    path-to-regexp "^1.5.3"
+    prop-types "^15.5.4"
+    warning "^3.0.0"
 
 react@^15.6.1:
   version "15.6.1"
@@ -5047,6 +5120,25 @@ reduce-function-call@^1.0.1:
   resolved "http://registry.npm.taobao.org/reduce-function-call/download/reduce-function-call-1.0.2.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
   dependencies:
     balanced-match "^0.4.2"
+
+redux-logger@^3.0.6:
+  version "3.0.6"
+  resolved "http://registry.npm.taobao.org/redux-logger/download/redux-logger-3.0.6.tgz#f7555966f3098f3c88604c449cf0baf5778274bf"
+  dependencies:
+    deep-diff "^0.3.5"
+
+redux-thunk@^2.2.0:
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
+
+redux@^3.7.2:
+  version "3.7.2"
+  resolved "http://registry.npm.taobao.org/redux/download/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
+  dependencies:
+    lodash "^4.2.1"
+    lodash-es "^4.2.1"
+    loose-envify "^1.1.0"
+    symbol-observable "^1.0.3"
 
 regenerate@^1.2.1:
   version "1.3.2"
@@ -5225,6 +5317,10 @@ resolve-from@^1.0.0:
 resolve-from@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/resolve-from/download/resolve-from-2.0.0.tgz#9480ab20e94ffa1d9e80a804c7ea147611966b57"
+
+resolve-pathname@^2.0.0:
+  version "2.1.0"
+  resolved "http://registry.npm.taobao.org/resolve-pathname/download/resolve-pathname-2.1.0.tgz#e8358801b86b83b17560d4e3c382d7aef2100944"
 
 resolve@^1.2.0:
   version "1.3.3"
@@ -5474,10 +5570,6 @@ source-map-support@^0.4.2:
   dependencies:
     source-map "^0.5.6"
 
-source-map-url@^0.4.0:
-  version "0.4.0"
-  resolved "http://registry.npm.taobao.org/source-map-url/download/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
-
 source-map@0.5.6, source-map@0.5.x, source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
   version "0.5.6"
   resolved "http://registry.npm.taobao.org/source-map/download/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
@@ -5710,6 +5802,10 @@ svgo@^0.7.0:
     mkdirp "~0.5.1"
     sax "~1.2.1"
     whet.extend "~0.9.9"
+
+symbol-observable@^1.0.3:
+  version "1.0.4"
+  resolved "http://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 
 symbol-tree@^3.2.1:
   version "3.2.2"
@@ -5985,6 +6081,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
+value-equal@^0.2.0:
+  version "0.2.1"
+  resolved "http://registry.npm.taobao.org/value-equal/download/value-equal-0.2.1.tgz#c220a304361fce6994dbbedaa3c7e1a1b895871d"
+
 vary@~1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/vary/download/vary-1.1.1.tgz#67535ebb694c1d52257457984665323f587e8d37"
@@ -6004,6 +6104,12 @@ vm-browserify@0.0.4:
   resolved "http://registry.npm.taobao.org/vm-browserify/download/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
+
+warning@^3.0.0:
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/warning/download/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
+  dependencies:
+    loose-envify "^1.0.0"
 
 watchpack@^1.4.0:
   version "1.4.0"

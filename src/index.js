@@ -4,12 +4,15 @@ import React from 'react'
 import { AppContainer } from 'react-hot-loader'
 import { render } from 'react-dom'
 import Root from './containers/root'
+import configureStore from './store/configureStore'
+import routeConfig from './store/routeConfig'
 
 const rootNode = document.getElementById('root')
-
+const store = configureStore()
+console.log('__DESKTOP__', __DESKTOP__)
 render(
   <AppContainer>
-    <Root />
+    <Root store={store} routeConfig={routeConfig} />
   </AppContainer>,
   rootNode
 )
@@ -20,7 +23,7 @@ if (module.hot) {
     const NextRoot = require('./containers/root').default // eslint-disable-line
     render(
       <AppContainer>
-        <NextRoot />
+        <NextRoot store={store} routeConfig={routeConfig} />
       </AppContainer>,
       rootNode
     )

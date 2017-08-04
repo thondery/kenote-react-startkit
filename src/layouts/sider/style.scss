@@ -1,0 +1,37 @@
+// ------------------------------------
+// Sass Style
+// ------------------------------------
+
+.layout-sider {
+  //width: 200px;
+  flex: 0 0 260px;
+  background-color: #eaedf1;
+
+  >ul {
+    padding-right: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 20px;
+
+    li {
+      line-height: 1.8;
+      margin: 8px 0;
+
+      a {
+        display: block;
+        text-decoration: none;
+        padding: 0 10px;
+        color: #666;
+        transition: all .8s ;
+
+        &:hover,
+        &.sider-nav-active {
+          background-color: #999;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

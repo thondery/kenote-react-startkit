@@ -1,0 +1,76 @@
+// ------------------------------------
+// Sass Style
+// ------------------------------------
+
+.layout-warpper {
+  height: inherit;
+  display: flex;
+}
+
+.layout-page-container {
+  height: inherit;
+  width: 100%;
+  overflow-y: auto;
+
+  >div {
+    padding: 20px;
+  }
+
+  li {
+    line-height: 1.8;
+  }
+}
+
+.layout-initial-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #eaedf1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.progress-span {
+  font-size: 10px;
+  color: #999;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.progress-span-initial {
+  font-size: 10px;
+  color: #999;
+  line-height: 1.8;
+  margin-bottom: 8px;
+
+  &::after {
+    content: '5%';
+    animation: initial-progress-span 1.8s;
+  }
+}
+
+@keyframes hideMask {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes initial-progress-span {
+  0% {
+    content: '0%';
+  }
+  60% {
+    content: '5%';
+  }
+  100% {
+    content: '5%';
+  }
+}
