@@ -19,4 +19,13 @@
     </div>
   </div>
 </body>
+<script>
+(function() {
+  var render = setTimeout( function () {
+    window.render();
+    clearTimeout(render);
+    render = null;
+  }, 500);
+})()
+</script>
 </html>

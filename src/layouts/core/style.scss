@@ -46,8 +46,8 @@
   margin-bottom: 8px;
 
   &::after {
-    content: '5%';
-    animation: initial-progress-span 1.8s;
+    content: '15%';
+    animation: initial-progress-span 2s;
   }
 }
 
@@ -65,12 +65,15 @@
 
 @keyframes initial-progress-span {
   0% {
-    content: '0%';
+    content: '0%' ;
   }
-  60% {
-    content: '5%';
+  30% {
+    content: '5%' ;
+  }
+  80% {
+    content: '15%' ;
   }
   100% {
-    content: '5%';
+    content: '15%' ;
   }
 }

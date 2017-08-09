@@ -26,7 +26,7 @@ export default class Sider extends PureComponent {
 
   componentDidMount () {
     const { initialPending, initialProgress } = this.props
-    initialPending && this.props.actions.initialProgress(30)
+    initialPending && this.props.actions.initialProgress(35)
   }
   
   render () {

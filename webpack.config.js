@@ -107,6 +107,7 @@ module.exports = {
     }),
     isDev && new webpack.HotModuleReplacementPlugin(),
     isProd && new webpack.optimize.AggressiveMergingPlugin(),
+    isProd && new webpack.optimize.ModuleConcatenationPlugin(),
     new LodashModuleReplacementPlugin({
       'shorthands'  : true,
       'collections' : true,

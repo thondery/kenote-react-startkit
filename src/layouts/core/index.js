@@ -35,7 +35,7 @@ export default class CoreLayout extends PureComponent {
         this.props.actions.initialComplete()
       }
       else {
-        this.props.actions.initialProgress(65)
+        this.props.actions.initialProgress(50)
       }
     }
   }

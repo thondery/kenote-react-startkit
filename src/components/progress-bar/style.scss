@@ -20,7 +20,7 @@
 
   .progress-bar-pending {
     background-color: #33cdff;
-    width: 5%;
+    width: 15%;
     height: inherit;
     border-radius: 3px;
     transition: width .8s ;
@@ -28,10 +28,10 @@
 
   .progress-bar-pending-initial {
     background-color: #33cdff;
-    width: 5%;
+    width: 15%;
     height: inherit;
     border-radius: 3px;
-    animation: initial-progress-bar 1.8s;
+    animation: initial-progress-bar 2s;
   }
 }
 
@@ -39,10 +39,13 @@
   0% {
     width: 0;
   }
-  60% {
+  30% {
     width: 5%;
   }
+  80% {
+    width: 15%;
+  }
   100% {
-    width: 5%;
+    width: 15%;
   }
 }

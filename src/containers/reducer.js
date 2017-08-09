@@ -6,7 +6,7 @@ import * as types from './constant'
 
 const initialState = {
   initialPending: true,
-  initialProgress: 5
+  initialProgress: 15
 }
 
 const ACTION_HANDLERS = {

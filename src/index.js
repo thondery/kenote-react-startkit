@@ -9,23 +9,24 @@ import routeConfig from './store/routeConfig'
 
 const rootNode = document.getElementById('root')
 const store = configureStore()
-console.log('__DESKTOP__', __DESKTOP__)
-render(
-  <AppContainer>
-    <Root store={store} routeConfig={routeConfig} />
-  </AppContainer>,
-  rootNode
-)
 
-// Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept('./containers/root', () => {
-    const NextRoot = require('./containers/root').default // eslint-disable-line
-    render(
-      <AppContainer>
-        <NextRoot store={store} routeConfig={routeConfig} />
-      </AppContainer>,
-      rootNode
-    )
-  })
+window.render = () => {
+  render(
+    <AppContainer>
+      <Root store={store} routeConfig={routeConfig} />
+    </AppContainer>,
+    rootNode
+  )
+  // Hot Module Replacement API
+  if (module.hot) {
+    module.hot.accept('./containers/root', () => {
+      const NextRoot = require('./containers/root').default // eslint-disable-line
+      render(
+        <AppContainer>
+          <NextRoot store={store} routeConfig={routeConfig} />
+        </AppContainer>,
+        rootNode
+      )
+    })
+  }
 }
